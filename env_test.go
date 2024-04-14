@@ -17,19 +17,19 @@ func TestConfig_Defaults(t *testing.T) {
 
 	require.True(t, conf.Simpler)
 
-	require.Equal(t, "tcp", conf.GrpcNetwork)
-	require.Equal(t, "127.0.0.1", conf.GrpcHost)
-	require.Equal(t, "4770", conf.GrpcPort)
-	require.Equal(t, "127.0.0.1:4770", conf.GrpcAddr)
+	require.Equal(t, "tcp", conf.GRPCNetwork)
+	require.Equal(t, "127.0.0.1", conf.GRPCHost)
+	require.Equal(t, "4770", conf.GRPCPort)
+	require.Equal(t, "127.0.0.1:4770", conf.GRPCAddr)
 
-	require.Equal(t, "127.0.0.1", conf.HttpHost)
-	require.Equal(t, "4771", conf.HttpPort)
-	require.Equal(t, "127.0.0.1:4771", conf.HttpAddr)
+	require.Equal(t, "127.0.0.1", conf.HTTPHost)
+	require.Equal(t, "4771", conf.HTTPPort)
+	require.Equal(t, "127.0.0.1:4771", conf.HTTPAddr)
 
-	require.Equal(t, "127.0.0.1", conf.OplpHost)
-	require.Equal(t, "4317", conf.OplpPort)
-	require.False(t, conf.OplpTLS)
-	require.Equal(t, 1.0, conf.OplpSampleRatio)
+	require.Equal(t, "127.0.0.1", conf.OtlpHost)
+	require.Equal(t, "4317", conf.OtlpPort)
+	require.False(t, conf.OtlpTLS)
+	require.InEpsilon(t, 1.0, conf.OtlpRatio, 0.0001)
 }
 
 func TestConfig_Override(t *testing.T) {
@@ -61,17 +61,17 @@ func TestConfig_Override(t *testing.T) {
 
 	require.False(t, conf.Simpler)
 
-	require.Equal(t, "udp", conf.GrpcNetwork)
-	require.Equal(t, "192.168.1.1", conf.GrpcHost)
-	require.Equal(t, "1000", conf.GrpcPort)
-	require.Equal(t, "192.168.1.1:1000", conf.GrpcAddr)
+	require.Equal(t, "udp", conf.GRPCNetwork)
+	require.Equal(t, "192.168.1.1", conf.GRPCHost)
+	require.Equal(t, "1000", conf.GRPCPort)
+	require.Equal(t, "192.168.1.1:1000", conf.GRPCAddr)
 
-	require.Equal(t, "192.168.1.2", conf.HttpHost)
-	require.Equal(t, "2000", conf.HttpPort)
-	require.Equal(t, "192.168.1.2:2000", conf.HttpAddr)
+	require.Equal(t, "192.168.1.2", conf.HTTPHost)
+	require.Equal(t, "2000", conf.HTTPPort)
+	require.Equal(t, "192.168.1.2:2000", conf.HTTPAddr)
 
-	require.Equal(t, "1.1.1.1", conf.OplpHost)
-	require.Equal(t, "8888", conf.OplpPort)
-	require.True(t, conf.OplpTLS)
-	require.Equal(t, 0.001, conf.OplpSampleRatio)
+	require.Equal(t, "1.1.1.1", conf.OtlpHost)
+	require.Equal(t, "8888", conf.OtlpPort)
+	require.True(t, conf.OtlpTLS)
+	require.InEpsilon(t, 0.001, conf.OtlpRatio, 0.0001)
 }
