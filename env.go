@@ -28,7 +28,7 @@ type Config struct {
 func New() (Config, error) {
 	cfg := Config{}
 	if err := env.Parse(&cfg); err != nil {
-		return Config{}, nil
+		return Config{}, err
 	}
 
 	return cfg, nil
