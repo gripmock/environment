@@ -22,7 +22,7 @@ type Config struct {
 	OtlpHost  string  `env:"OTLP_TRACE_GRPC_HOST" envDefault:"127.0.0.1"`
 	OtlpPort  string  `env:"OTLP_TRACE_GRPC_PORT" envDefault:"4317"`
 	OtlpTLS   bool    `env:"OTLP_TRACE_TLS" envDefault:"false"`
-	OtlpRatio float64 `env:"OTLP_SAMPLE_RATIO" envDefault:"1.0"`
+	OtlpRatio float64 `env:"OTLP_SAMPLE_RATIO" envDefault:"0.0"`
 }
 
 func New() (Config, error) {
