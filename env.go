@@ -11,11 +11,11 @@ type Config struct {
 	Simpler bool `env:"SERVICE_SIMPLER" envDefault:"true"`
 
 	GRPCNetwork string `env:"GRPC_NETWORK" envDefault:"tcp"`
-	GRPCHost    string `env:"GRPC_HOST" envDefault:"127.0.0.1"`
+	GRPCHost    string `env:"GRPC_HOST" envDefault:"0.0.0.0"`
 	GRPCPort    string `env:"GRPC_PORT" envDefault:"4770"`
 	GRPCAddr    string `env:",expand" envDefault:"$GRPC_HOST:$GRPC_PORT"`
 
-	HTTPHost string `env:"HTTP_HOST" envDefault:"127.0.0.1"`
+	HTTPHost string `env:"HTTP_HOST" envDefault:"0.0.0.0"`
 	HTTPPort string `env:"HTTP_PORT" envDefault:"4771"`
 	HTTPAddr string `env:",expand" envDefault:"$HTTP_HOST:$HTTP_PORT"`
 
