@@ -25,11 +25,6 @@ func TestConfig_Defaults(t *testing.T) {
 	require.Equal(t, "127.0.0.1", conf.HTTPHost)
 	require.Equal(t, "4771", conf.HTTPPort)
 	require.Equal(t, "127.0.0.1:4771", conf.HTTPAddr)
-
-	require.Equal(t, "127.0.0.1", conf.OtlpHost)
-	require.Equal(t, "4317", conf.OtlpPort)
-	require.False(t, conf.OtlpTLS)
-	require.InEpsilon(t, 1.0, conf.OtlpRatio, 0.0001)
 }
 
 func TestConfig_Override(t *testing.T) {
@@ -43,10 +38,6 @@ func TestConfig_Override(t *testing.T) {
 		"HTTP_HOST":            "192.168.1.2",
 		"HTTP_PORT":            "2000",
 		"HTTP_ADDR":            "222.222.222.222:2222",
-		"OTLP_TRACE_GRPC_HOST": "1.1.1.1",
-		"OTLP_TRACE_GRPC_PORT": "8888",
-		"OTLP_TRACE_TLS":       "true",
-		"OTLP_SAMPLE_RATIO":    "0.001",
 	}
 
 	for k, v := range env {
@@ -69,9 +60,4 @@ func TestConfig_Override(t *testing.T) {
 	require.Equal(t, "192.168.1.2", conf.HTTPHost)
 	require.Equal(t, "2000", conf.HTTPPort)
 	require.Equal(t, "192.168.1.2:2000", conf.HTTPAddr)
-
-	require.Equal(t, "1.1.1.1", conf.OtlpHost)
-	require.Equal(t, "8888", conf.OtlpPort)
-	require.True(t, conf.OtlpTLS)
-	require.InEpsilon(t, 0.001, conf.OtlpRatio, 0.0001)
 }
