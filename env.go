@@ -18,11 +18,6 @@ type Config struct {
 	HTTPHost string `env:"HTTP_HOST" envDefault:"0.0.0.0"`
 	HTTPPort string `env:"HTTP_PORT" envDefault:"4771"`
 	HTTPAddr string `env:",expand" envDefault:"$HTTP_HOST:$HTTP_PORT"`
-
-	OtlpHost  string  `env:"OTLP_TRACE_GRPC_HOST" envDefault:"127.0.0.1"`
-	OtlpPort  string  `env:"OTLP_TRACE_GRPC_PORT" envDefault:"4317"`
-	OtlpTLS   bool    `env:"OTLP_TRACE_TLS" envDefault:"false"`
-	OtlpRatio float64 `env:"OTLP_SAMPLE_RATIO" envDefault:"0.0"`
 }
 
 func New() (Config, error) {
