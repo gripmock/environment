@@ -5,26 +5,16 @@ linters:
   enable-all: true
   disable:
     # deprecated
-    - nosnakecase
-    - structcheck
-    - interfacer
-    - deadcode
-    - exhaustivestruct
-    - maligned
-    - ifshort
-    - varcheck
-    - golint
-    - scopelint
+    - execinquery
+    - gomnd
     # not relevant
-    - varnamelen
     - wrapcheck
     - paralleltest
     - exhaustruct
-    - dupl
     - tagalign
 linters-settings:
   lll:
-    line-length: 160
+    line-length: 140
   gci:
     sections:
       - Standard
