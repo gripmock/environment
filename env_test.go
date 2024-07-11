@@ -16,6 +16,7 @@ func TestConfig_Defaults(t *testing.T) {
 	require.Equal(t, "info", conf.LogLevel)
 
 	require.True(t, conf.Simpler)
+	require.True(t, conf.StrictMethodTitle)
 
 	require.Equal(t, "tcp", conf.GRPCNetwork)
 	require.Equal(t, "0.0.0.0", conf.GRPCHost)
@@ -29,15 +30,16 @@ func TestConfig_Defaults(t *testing.T) {
 
 func TestConfig_Override(t *testing.T) {
 	env := map[string]string{
-		"LOG_LEVEL":       "trace",
-		"SERVICE_SIMPLER": "false",
-		"GRPC_NETWORK":    "udp",
-		"GRPC_HOST":       "192.168.1.1",
-		"GRPC_PORT":       "1000",
-		"GRPC_ADDR":       "111.111.111.111:1111", // no override
-		"HTTP_HOST":       "192.168.1.2",
-		"HTTP_PORT":       "2000",
-		"HTTP_ADDR":       "222.222.222.222:2222",
+		"LOG_LEVEL":           "trace",
+		"PACKAGE_SIMPLER":     "false",
+		"STRICT_METHOD_TITLE": "false",
+		"GRPC_NETWORK":        "udp",
+		"GRPC_HOST":           "192.168.1.1",
+		"GRPC_PORT":           "1000",
+		"GRPC_ADDR":           "111.111.111.111:1111", // no override
+		"HTTP_HOST":           "192.168.1.2",
+		"HTTP_PORT":           "2000",
+		"HTTP_ADDR":           "222.222.222.222:2222",
 	}
 
 	for k, v := range env {
@@ -51,6 +53,7 @@ func TestConfig_Override(t *testing.T) {
 	require.Equal(t, "trace", conf.LogLevel)
 
 	require.False(t, conf.Simpler)
+	require.False(t, conf.StrictMethodTitle)
 
 	require.Equal(t, "udp", conf.GRPCNetwork)
 	require.Equal(t, "192.168.1.1", conf.GRPCHost)
