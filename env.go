@@ -8,7 +8,9 @@ type Config struct {
 	// Application logging level.
 	LogLevel string `env:"LOG_LEVEL" envDefault:"info"`
 	// Ignore the service package.
-	Simpler bool `env:"SERVICE_SIMPLER" envDefault:"true"`
+	Simpler bool `env:"PACKAGE_SIMPLER" envDefault:"true"`
+	// Strict mode for checking the name of services and methods.
+	StrictMethodTitle bool `env:"STRICT_METHOD_TITLE" envDefault:"true"`
 
 	GRPCNetwork string `env:"GRPC_NETWORK" envDefault:"tcp"`
 	GRPCHost    string `env:"GRPC_HOST" envDefault:"0.0.0.0"`
