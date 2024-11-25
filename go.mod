@@ -4,7 +4,7 @@ go 1.22.1
 
 require (
 	github.com/caarlos0/env/v10 v10.0.0
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 )
 
 require (
