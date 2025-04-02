@@ -1,7 +1,6 @@
 package environment_test
 
 import (
-	"os"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -43,8 +42,7 @@ func TestConfig_Override(t *testing.T) {
 	}
 
 	for k, v := range env {
-		err := os.Setenv(k, v)
-		require.NoError(t, err)
+		t.Setenv(k, v)
 	}
 
 	conf, err := environment.New()

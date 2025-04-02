@@ -3,7 +3,7 @@ package environment
 import (
 	"time"
 
-	env "github.com/caarlos0/env/v10"
+	env "github.com/caarlos0/env/v11"
 )
 
 type watcherType string
