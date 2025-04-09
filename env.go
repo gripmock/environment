@@ -33,7 +33,7 @@ type Config struct {
 	HTTPAddr string `env:",expand" envDefault:"$HTTP_HOST:$HTTP_PORT"`
 
 	// Files configuration.
-	StubWatcherEnabled  bool          `env:"STUB_WATCHER_ENABLED" envDefault:"false"`
+	StubWatcherEnabled  bool          `env:"STUB_WATCHER_ENABLED" envDefault:"true"`
 	StubWatcherInterval time.Duration `env:"STUB_WATCHER_INTERVAL" envDefault:"1s"`
 	StubWatcherType     watcherType   `env:"STUB_WATCHER_TYPE" envDefault:"fsnotify"`
 }
