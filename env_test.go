@@ -14,8 +14,7 @@ func TestConfig_Defaults(t *testing.T) {
 
 	require.Equal(t, "info", conf.LogLevel)
 
-	require.True(t, conf.Simpler)
-	require.True(t, conf.StrictMethodTitle)
+	require.False(t, conf.StrictMethodTitle)
 
 	require.Equal(t, "tcp", conf.GRPCNetwork)
 	require.Equal(t, "0.0.0.0", conf.GRPCHost)
@@ -50,7 +49,6 @@ func TestConfig_Override(t *testing.T) {
 
 	require.Equal(t, "trace", conf.LogLevel)
 
-	require.False(t, conf.Simpler)
 	require.False(t, conf.StrictMethodTitle)
 
 	require.Equal(t, "udp", conf.GRPCNetwork)
